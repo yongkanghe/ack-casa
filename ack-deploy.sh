@@ -27,19 +27,19 @@ echo '-------Still waiting for completion of creating ACK Cluster'
 sleep 100
 
 # aliyun cs DescribeClustersV1 | jq '.clusters[].state' | grep running
-aliyun cs DescribeClustersV1 | grep running
+aliyun cs DescribeClustersV1 | jq '.clusters[].state' | grep running
 if [ `echo $?` -eq 1 ]
 then
   sleep 15
 fi
 
-aliyun cs DescribeClustersV1 | grep running
+aliyun cs DescribeClustersV1| jq '.clusters[].state'  | grep running
 if [ `echo $?` -eq 1 ]
 then
   sleep 10
 fi
 
-aliyun cs DescribeClustersV1 | grep running
+aliyun cs DescribeClustersV1| jq '.clusters[].state'  | grep running
 if [ `echo $?` -eq 1 ]
 then
   sleep 5
@@ -55,7 +55,7 @@ jq -r yamlify2 ack_kubeconfig.json > ack_kubeconfig
 chmod 600 ack_kubeconfig
 # export KUBECONFIG=~/ack-k10/ack_kubeconfig
 # export KUBECONFIG=~/.kube/config:./ack_kubeconfig.json
-export KUBECONFIG=./ack_kubeconfig.json
+export KUBECONFIG=./ack_kubeconfig
 
 kubectl get nodes | grep aliyun
 if [ `echo $?` -eq 1 ]
