@@ -16,31 +16,32 @@ sleep 200
 echo '-------Wtill waiting for completion of deleting ACK Cluster'
 sleep 100
 
-aliyun cs DescribeClustersV1 --region $MY_REGION | jq '.clusters[].state' | grep deleting
+# aliyun cs DescribeClustersV1 --region $MY_REGION | jq '.clusters[].state' | grep deleting
+aliyun cs DescribeClustersV1 --region $MY_REGION | grep deleting
 if [ `echo $?` -eq 0 ]
 then
   sleep 20
 fi
 
-aliyun cs DescribeClustersV1 --region $MY_REGION | jq '.clusters[].state' | grep deleting
+aliyun cs DescribeClustersV1 --region $MY_REGION | grep deleting
 if [ `echo $?` -eq 0 ]
 then
   sleep 20
 fi
 
-aliyun cs DescribeClustersV1 --region $MY_REGION | jq '.clusters[].state' | grep deleting
+aliyun cs DescribeClustersV1 --region $MY_REGION | grep deleting
 if [ `echo $?` -eq 0 ]
 then
   sleep 20
 fi
 
-aliyun cs DescribeClustersV1 --region $MY_REGION | jq '.clusters[].state' | grep deleting
+aliyun cs DescribeClustersV1 --region $MY_REGION | grep deleting
 if [ `echo $?` -eq 0 ]
 then
   sleep 10
 fi
 
-aliyun cs DescribeClustersV1 --region $MY_REGION | jq '.clusters[].state' | grep deleting
+aliyun cs DescribeClustersV1 --region $MY_REGION | grep deleting
 if [ `echo $?` -eq 0 ]
 then
   sleep 10
@@ -60,8 +61,8 @@ echo '-------Deleting snapshots'
 aliyun ecs DescribeSnapshots --RegionId $MY_REGION --region $MY_REGION --Tag.1.Key createdby --Tag.1.Value alibabacloud-csi-plugin | grep SnapshotId | awk '{print $2}' | sed -e 's/\"//g' | sed -e 's/\,//g' > ack_snapshotids
 for i in $(cat ack_snapshotids);do echo $i;aliyun ecs DeleteSnapshot --SnapshotId $i --region $MY_REGION;done
 
-echo '-------Deleting objects from the bucket'
-ossutil64 -i $(cat aliaccess | head -1) -k $(cat aliaccess | tail -1) -e https://oss-$MY_REGION.aliyuncs.com rm oss://$(cat ack_bucketname)/ -r -f
+# echo '-------Deleting objects from the bucket'
+# ossutil64 -i $(cat aliaccess | head -1) -k $(cat aliaccess | tail -1) -e https://oss-$MY_REGION.aliyuncs.com rm oss://$(cat ack_bucketname)/ -r -f
 # gsutil rm -r gs://$(cat ack_bucketname)
 # unset KUBECONFIG
 #kubectl config use-context $(kubectl config get-contexts -o name | grep kubernetes-admin)
