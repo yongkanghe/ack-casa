@@ -1,0 +1,15 @@
+ack_*
+*access*
+k10-sa-key.json
+backupname
+exportname
+id-*
+gcs-*
+*openapi.template.*
+ossutil64*
+aliprep*
+
+
+
+
+
