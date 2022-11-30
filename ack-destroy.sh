@@ -17,31 +17,31 @@ echo '-------Wtill waiting for completion of deleting ACK Cluster'
 sleep 100
 
 # aliyun cs DescribeClustersV1 --region $MY_REGION | jq '.clusters[].state' | grep deleting
-aliyun cs DescribeClustersV1 --region $MY_REGION | grep deleting
+aliyun cs DescribeClustersV1 --region $MY_REGION | jq '.clusters[].state' | grep deleting
 if [ `echo $?` -eq 0 ]
 then
   sleep 20
 fi
 
-aliyun cs DescribeClustersV1 --region $MY_REGION | grep deleting
+aliyun cs DescribeClustersV1 --region $MY_REGION | jq '.clusters[].state' | grep deleting
 if [ `echo $?` -eq 0 ]
 then
   sleep 20
 fi
 
-aliyun cs DescribeClustersV1 --region $MY_REGION | grep deleting
+aliyun cs DescribeClustersV1 --region $MY_REGION | jq '.clusters[].state' | grep deleting
 if [ `echo $?` -eq 0 ]
 then
   sleep 20
 fi
 
-aliyun cs DescribeClustersV1 --region $MY_REGION | grep deleting
+aliyun cs DescribeClustersV1 --region $MY_REGION | jq '.clusters[].state' | grep deleting
 if [ `echo $?` -eq 0 ]
 then
   sleep 10
 fi
 
-aliyun cs DescribeClustersV1 --region $MY_REGION | grep deleting
+aliyun cs DescribeClustersV1 --region $MY_REGION | jq '.clusters[].state' | grep deleting
 if [ `echo $?` -eq 0 ]
 then
   sleep 10
