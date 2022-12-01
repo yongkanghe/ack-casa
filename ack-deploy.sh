@@ -53,9 +53,9 @@ aliyun cs DescribeClustersV1  --region $MY_REGION --name $(cat ack_clustername)|
 aliyun cs DescribeClusterUserKubeconfig --region $MY_REGION --ClusterId $(cat ack_clusterid) > ack_kubeconfig.json
 jq -r yamlify2 ack_kubeconfig.json > ack_kubeconfig
 chmod 600 ack_kubeconfig
-# export KUBECONFIG=~/ack-k10/ack_kubeconfig
-# export KUBECONFIG=~/.kube/config:./ack_kubeconfig.json
+
 export KUBECONFIG=./ack_kubeconfig
+kubectl annotate sc alicloud-disk-essd storageclass.kubernetes.io/is-default-class=true
 
 kubectl get nodes | grep aliyun
 if [ `echo $?` -eq 1 ]
