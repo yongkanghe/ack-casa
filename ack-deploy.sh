@@ -96,6 +96,8 @@ then
   sleep 5
 fi
 
+./pg-deploy.sh
+
 echo "" | awk '{print $1}'
 endtime=$(date +%s)
 duration=$(( $endtime - $starttime ))
