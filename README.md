@@ -8,12 +8,12 @@ It is challenging to create an ACK cluster from Alibaba Cloud if you are not fam
 
 This script based automation allows you to build a ready-to-use ACK cluster with PostgreSQL deployed in about 10 minutes with just 1 Command. If you prefer to create an ACK Cluster via Web Console or API, you can watch the Youtube videos and follow the guide to build one on Alibaba Cloud.
 
-# Option 1: Build an ACK cluster via Web UI
+# Build an ACK cluster via Web UI
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/JLdc4D9kAss/0.jpg)](https://www.youtube.com/watch?v=JLdc4D9kAss)
 
 #### Subscribe [K8s Data Management](https://www.youtube.com/channel/UCm-sw1b23K-scoVSCDo30YQ?sub_confirmation=1) Youtube Channel
 
-# Option 2: Build an ACK cluster via OpenAPI
+# Build an ACK cluster via OpenAPI
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/eXjTSDmgcUE/0.jpg)](https://www.youtube.com/watch?v=eXjTSDmgcUE)
 
 #### Subscribe [K8s Data Management](https://www.youtube.com/channel/UCm-sw1b23K-scoVSCDo30YQ?sub_confirmation=1) Youtube Channel
@@ -45,9 +45,6 @@ vi setenv.sh
 ````
 ./ack-destroy.sh
 ````
-
-# Watch how-to video.
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/clGcZbdaQPE/0.jpg)](https://www.youtube.com/watch?v=clGcZbdaQPE)
 
 #### Subscribe [K8s Data Management](https://www.youtube.com/channel/UCm-sw1b23K-scoVSCDo30YQ?sub_confirmation=1) Youtube Channel
 
