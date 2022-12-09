@@ -75,6 +75,7 @@ then
   sleep 5
 fi
 
+echo "" | awk '{print $1}'
 endtime=$(date +%s)
 duration=$(( $endtime - $starttime ))
 echo "-------Total time to create ACK Cluster is $(($duration / 60)) minutes $(($duration % 60)) seconds."
