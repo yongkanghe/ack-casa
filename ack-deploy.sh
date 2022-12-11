@@ -15,7 +15,7 @@ echo "" | awk '{print $1}' >> ack_openapi.url
 echo "" | awk '{print $1}'
 echo "Please Copy the whole OpenAPI URL and Paste it to your Web Browser and Press [Enter]"
 echo "" | awk '{print $1}'
-echo "Then Click 'Initial Call' in the bottom of the screen from the Web Browser"
+echo "Then Click 'Call Now' button from the Web Browser"
 cat ack_openapi.url
 
 read -p "Once you see 'Response 202' in few seconds from Web Browser, back to command line, Press [Enter]"
