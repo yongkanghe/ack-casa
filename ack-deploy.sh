@@ -21,13 +21,13 @@ cat ack_openapi.url
 read -p "Once you see 'Response 202' in few seconds from Web Browser, back to command line, Press [Enter]"
 echo "" | awk '{print $1}'
 echo '-------Waiting for completion of creating ACK Cluster'
-sleep 300
+sleep 240
 
 echo '-------Still waiting for completion of creating ACK Cluster'
 sleep 120
 
 echo '-------Waiting for completion of installing addons'
-sleep 120
+sleep 90
 
 # aliyun cs DescribeClustersV1 | jq '.clusters[].state' | grep running
 aliyun cs DescribeClustersV1 | jq '.clusters[].state' | grep running
