@@ -24,13 +24,22 @@ echo '-------Waiting for completion of creating ACK Cluster'
 sleep 300
 
 echo '-------Still waiting for completion of creating ACK Cluster'
-sleep 100
+sleep 120
+
+echo '-------Waiting for completion of installing addons'
+sleep 120
 
 # aliyun cs DescribeClustersV1 | jq '.clusters[].state' | grep running
 aliyun cs DescribeClustersV1 | jq '.clusters[].state' | grep running
 if [ `echo $?` -eq 1 ]
 then
-  sleep 15
+  sleep 30
+fi
+
+aliyun cs DescribeClustersV1| jq '.clusters[].state'  | grep running
+if [ `echo $?` -eq 1 ]
+then
+  sleep 20
 fi
 
 aliyun cs DescribeClustersV1| jq '.clusters[].state'  | grep running
@@ -42,11 +51,8 @@ fi
 aliyun cs DescribeClustersV1| jq '.clusters[].state'  | grep running
 if [ `echo $?` -eq 1 ]
 then
-  sleep 5
+  sleep 10
 fi
-
-echo '-------Waiting for completion of installing addons'
-sleep 120
 
 aliyun cs DescribeClustersV1  --region $MY_REGION --name $(cat ack_clustername)| grep cluster_id | sed -e 's/\"//g' | sed -e 's/\,//g' | awk '{print $2}' > ack_clusterid
 
