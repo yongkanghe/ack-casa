@@ -10,7 +10,7 @@ helm upgrade --install kubearmor-operator kubearmor/kubearmor-operator -n yong-k
 kubectl apply -f ./kubearmor-sample-config.yaml
 
 # Install KubeArmor CLI
-curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b ~/gke-casa
+curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b ~/ack-casa
 
 # Deploy a test nginx app
 kubectl create namespace yong-nginx
