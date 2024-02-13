@@ -10,7 +10,12 @@ helm3 upgrade --install kubearmor-operator kubearmor/kubearmor-operator -n yong-
 kubectl apply -f ./kubearmor-sample-config.yaml
 
 # Install KubeArmor CLI
-curl -sfL http://get.kubearmor.io/ | sh -s -- -b ~/ack-casa
+# curl -sfL http://get.kubearmor.io/ | sh -s -- -b ~/ack-casa
+if [ ! -f ~/ack-casa/karmor ]; then
+  wget https://github.com/kubearmor/kubearmor-client/releases/download/v1.1.0/karmor_1.1.0_linux_amd64.tar.gz
+  tar xvf karmor_1.1.0_linux_amd64.tar.gz
+  rm karmor_1.1.0_linux_amd64.tar.gz README.md LICENSE
+fi
 
 # Deploy a test nginx app
 kubectl create namespace yong-nginx

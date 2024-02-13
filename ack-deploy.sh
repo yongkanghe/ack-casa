@@ -59,24 +59,24 @@ aliyun cs DescribeClustersV1  --region $MY_REGION --name $(cat ack_clustername)|
 aliyun cs DescribeClusterUserKubeconfig --region $MY_REGION --ClusterId $(cat ack_clusterid) > ./ack_kubeconfig.json
 
 # Run below command if yamlify2 does not exist
-cat <<EOF > ~/.jq
-def yamlify2:
-    (objects | to_entries | (map(.key | length) | max + 2) as \$w |
-        .[] | (.value | type) as \$type |
-        if \$type == "array" then
-            "\(.key):", (.value | yamlify2)
-        elif \$type == "object" then
-            "\(.key):", "    \(.value | yamlify2)"
-        else
-            "\(.key):\(" " * (.key | \$w - length))\(.value)"
-        end
-    )
-    // (arrays | select(length > 0)[] | [yamlify2] |
-        "  - \(.[0])", "    \(.[1:][])"
-    )
-    // .
-    ;
-EOF
+# cat <<EOF > ~/.jq
+# def yamlify2:
+#     (objects | to_entries | (map(.key | length) | max + 2) as \$w |
+#         .[] | (.value | type) as \$type |
+#         if \$type == "array" then
+#             "\(.key):", (.value | yamlify2)
+#         elif \$type == "object" then
+#             "\(.key):", "    \(.value | yamlify2)"
+#         else
+#             "\(.key):\(" " * (.key | \$w - length))\(.value)"
+#         end
+#     )
+#     // (arrays | select(length > 0)[] | [yamlify2] |
+#         "  - \(.[0])", "    \(.[1:][])"
+#     )
+#     // .
+#     ;
+# EOF
 
 # Obtain Kubeconfig file
 aliyun cs GET /k8s/$(cat ack_clusterid)/user_config | jq -r '.config' >> $HOME/.kube/config
