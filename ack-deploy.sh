@@ -78,10 +78,13 @@ def yamlify2:
     ;
 EOF
 
-jq -r yamlify2 ack_kubeconfig.json > ./ack_kubeconfig
-chmod 600 ./ack_kubeconfig
+# Obtain Kubeconfig file
+aliyun cs GET /k8s/$(cat ack_clusterid)/user_config | jq -r '.config' >> $HOME/.kube/config
 
-export KUBECONFIG=./ack_kubeconfig
+# jq -r yamlify2 ack_kubeconfig.json > ./ack_kubeconfig
+# chmod 600 ./ack_kubeconfig
+
+# export KUBECONFIG=./ack_kubeconfig
 kubectl annotate sc alicloud-disk-essd storageclass.kubernetes.io/is-default-class=true
 
 kubectl get nodes | grep aliyun
