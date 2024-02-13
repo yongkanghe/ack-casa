@@ -2,15 +2,15 @@ echo '-------Installing KubeArmor on GKE Cluster (typically in ~2 mins)'
 starttime=$(date +%s)
 
 # Add helm chart repo
-helm repo add kubearmor https://kubearmor.github.io/charts 
-helm repo update kubearmor
+helm3 repo add kubearmor https://kubearmor.github.io/charts 
+helm3 repo update kubearmor
 
 # Install KubeArmor
-helm upgrade --install kubearmor-operator kubearmor/kubearmor-operator -n yong-kubearmor --create-namespace 
+helm3 upgrade --install kubearmor-operator kubearmor/kubearmor-operator -n yong-kubearmor --create-namespace 
 kubectl apply -f ./kubearmor-sample-config.yaml
 
 # Install KubeArmor CLI
-curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b ~/ack-casa
+curl -sfL http://get.kubearmor.io/ | sh -s -- -b ~/ack-casa
 
 # Deploy a test nginx app
 kubectl create namespace yong-nginx

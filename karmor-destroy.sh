@@ -2,7 +2,8 @@ starttime=$(date +%s)
 echo '-------Deleting the GKE Cluster (typically in few mins)'
 
 # Uninstall KubeArmor
-helm uninstall kubearmor-operator -n yong-kubearmor
+helm3 uninstall kubearmor-operator -n yong-kubearmor
+kubectl delete ns yong-kubearmor
 kubectl delete ns yong-nginx
 
 echo "" | awk '{print $1}'
