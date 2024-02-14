@@ -8,3 +8,4 @@ export MY_KEYPAIR=key4yong1             #Customize your favorite Keypair name
 export MY_INSTANCE_TYPE=ecs.g7.xlarge   #Customize your instance type
 # export MY_BUCKET=k10bucket4yong1-sg     #Customize your favorite bucket
 # export MY_OBJECT_STORAGE_PROFILE=myoss1 #Customize your favorite profile name
+export PATH=$PATH:~/ack-casa
