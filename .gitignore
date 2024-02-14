@@ -1,5 +1,6 @@
 ack_*
-*access*
+*ackaccess*
+*ack-access*
 k10-sa-key.json
 backupname
 exportname
