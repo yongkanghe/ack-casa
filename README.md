@@ -19,15 +19,11 @@ This script based automation allows you to build a ready-to-use ACK cluster with
 # Here're the prerequisities. 
 
 1. Go to Alibaba Cloud Shell or terminal
-2. Verify if you can access the cluster via kubectl
-````
-kubectl get nodes
-````
-3. Clone the github repo, run below command
+2. Clone the github repo, run below command
 ````
 git clone https://github.com/yongkanghe/ack-casa.git
 ````
-4. Optionally, you can customize the clustername, instance-type, zone, region, bucketname
+3. Optionally, you can customize the clustername, instance-type, zone, region, bucketname
 ````
 vi setenv.sh
 ````
