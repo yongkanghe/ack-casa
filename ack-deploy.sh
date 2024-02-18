@@ -56,7 +56,7 @@ fi
 
 aliyun cs DescribeClustersV1  --region $MY_REGION --name $(cat ack_clustername)| grep cluster_id | sed -e 's/\"//g' | sed -e 's/\,//g' | awk '{print $2}' > ack_clusterid
 
-aliyun cs DescribeClusterUserKubeconfig --region $MY_REGION --ClusterId $(cat ack_clusterid) > ./ack_kubeconfig.json
+# aliyun cs DescribeClusterUserKubeconfig --region $MY_REGION --ClusterId $(cat ack_clusterid) > ./ack_kubeconfig.json
 
 # Run below command if yamlify2 does not exist
 # cat <<EOF > ~/.jq
