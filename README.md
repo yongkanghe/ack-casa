@@ -18,7 +18,7 @@ This script based automation allows you to build a ready-to-use ACK cluster with
 
 # Here're the prerequisities. 
 
-1. Go to Alibaba Cloud Shell or terminal
+1. Go to the terminal
 2. Clone the github repo, run below command
 ````
 git clone https://github.com/yongkanghe/ack-casa.git
