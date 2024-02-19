@@ -1,10 +1,9 @@
 starttime=$(date +%s)
-echo '-------Removing KubeArmor from ACK Cluster (typically in few mins)'
+echo '-------Removing AccuKnox from ACK Cluster (typically in few mins)'
 
 # Uninstall KubeArmor
-helm3 uninstall kubearmor-operator -n yong-kubearmor
-kubectl delete ns yong-kubearmor
-kubectl delete ns yong-nginx
+helm uninstall accuknox-agents -n accuknox-agents
+kubectl delete ns accuknox-agents
 
 echo "" | awk '{print $1}'
 endtime=$(date +%s)
